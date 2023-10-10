@@ -1,17 +1,15 @@
+<script setup>
+import Navbar from "@/components/Navbar";
+</script>
+
 <template>
-  <hello-world></hello-world>
+  <Navbar />
+  <h1>APP</h1>
+  <div class="container">
+    <router-view></router-view>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
@@ -20,6 +18,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
