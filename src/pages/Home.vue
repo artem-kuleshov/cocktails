@@ -14,9 +14,9 @@ function getCocktails() {
 </script>
 
 <template>
-  <div class="row mb-4">
-    <div class="col-12">
-      <h3>CHOOSE YOUR DRINK</h3>
+  <div class="row mb-4 mt-2">
+    <div class="col-12 text-center">
+      <h3>CHOOSE YOUR INGREDIENT</h3>
       <div>
         <el-select v-model="rootStore.ingredient" placeholder="Choose ingredient" size="large"
              @change="getCocktails" filterable allow-create>
