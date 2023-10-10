@@ -1,16 +1,15 @@
 <script setup>
-import { ref } from 'vue'
 import { useRootStore } from "@/stores/root";
 import { storeToRefs } from 'pinia'
 
 const rootStore = useRootStore()
 rootStore.getIngredients()
 
-const { ingredients, cocktails } = storeToRefs(rootStore)
-const ingredient = ref(null)
+const { ingredients, ingredient, cocktails } = storeToRefs(rootStore)
 
 function getCocktails() {
-  rootStore.getCocktails(ingredient.value)
+  console.log(rootStore.ingredient)
+  rootStore.getCocktails(rootStore.ingredient)
 }
 </script>
 
@@ -19,9 +18,14 @@ function getCocktails() {
     <div class="col-12">
       <h3>CHOOSE YOUR DRINK</h3>
       <div>
-        <select v-model="ingredient" @change="getCocktails" class="form-select w-50" style="display: initial">
-          <option v-for="item in ingredients" :value="item.strIngredient1">{{ item.strIngredient1 }}</option>
-        </select>
+        <el-select v-model="rootStore.ingredient" placeholder="Choose ingredient" size="large"
+             @change="getCocktails" filterable allow-create>
+          <el-option v-for="item in ingredients"
+              :key="item.strIngredient1"
+              :label="item.strIngredient1"
+              :value="item.strIngredient1"
+          />
+        </el-select>
       </div>
     </div>
   </div>

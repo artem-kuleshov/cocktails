@@ -1,10 +1,11 @@
-import { defineStore } from "pinia";
+import {defineStore} from "pinia";
 import axios from "axios";
-import { INGREDIENTS_URL, COCKTAILS_BY_I_URL } from "@/constants";
+import {INGREDIENTS_URL, COCKTAILS_BY_I_URL} from "@/constants";
 
 export const useRootStore = defineStore('root', {
-    state:() => ({
+    state: () => ({
         ingredients: [],
+        ingredient: null,
         cocktails: []
     }),
     actions: {
@@ -16,6 +17,9 @@ export const useRootStore = defineStore('root', {
             const data = await axios.get(`${COCKTAILS_BY_I_URL}${ingredient}`)
             console.log(data)
             this.cocktails = data?.data?.drinks
+        },
+        setIngredient(val) {
+            this.ingredient = val;
         }
     }
 })

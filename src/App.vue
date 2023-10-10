@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 
 <template>
   <Navbar />
-  <h1>APP</h1>
   <div class="container">
     <router-view></router-view>
   </div>
@@ -16,7 +15,6 @@ import Navbar from "@/components/Navbar";
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 </style>
